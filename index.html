@@ -91,11 +91,13 @@
   /* ── HERO ── */
   #hero {
     min-height: 100vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     position: relative;
     overflow: hidden;
-    padding: 6rem 3rem 4rem;
+    padding: 8rem 3rem 5rem;
   }
 
   /* Grid background */
@@ -264,13 +266,12 @@
   }
 
   .hero-meta {
-    position: absolute;
-    bottom: 2rem;
-    left: 50%;
-    transform: translateX(-50%);
     display: flex;
     gap: 3rem;
+    margin-top: 3rem;
     animation: fadeUp 0.8s ease 0.5s both;
+    flex-wrap: wrap;
+    justify-content: center;
   }
 
   .meta-item {
@@ -749,6 +750,152 @@
     flex-wrap: wrap;
   }
 
+  /* ── RESUME ── */
+  .resume-box {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 2.5rem;
+  }
+
+  .resume-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+  }
+
+  .resume-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+  }
+
+  .resume-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+    margin-top: 0.3rem;
+  }
+
+  .resume-contact-row {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+  }
+
+  .resume-section {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .resume-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .resume-sec-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .resume-text {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  .resume-skills-table { display: flex; flex-direction: column; gap: 0.5rem; }
+
+  .rs-row {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+
+  .rs-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--text);
+    letter-spacing: 0.02em;
+  }
+
+  .rs-val { color: var(--muted); }
+
+  .resume-proj-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .resume-proj-title span {
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    font-size: 0.7rem;
+    color: var(--accent2);
+  }
+
+  .resume-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .resume-list li {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.6;
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .resume-list li::before {
+    content: '·';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 1.2rem;
+    line-height: 1.2;
+  }
+
+  .resume-edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.87rem;
+    color: var(--muted);
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .resume-score {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--accent3);
+    white-space: nowrap;
+  }
+
   /* ── FOOTER ── */
   footer {
     padding: 2rem 3rem;
@@ -770,331 +917,4 @@
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  /* ── TOOLTIP ── */
-  .location-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.65rem;
-    color: var(--muted);
-    letter-spacing: 0.05em;
-    margin-top: 1rem;
-    animation: fadeUp 0.8s ease 0.35s both;
-  }
-
-  .location-pill::before {
-    content: '📍';
-    font-size: 0.75rem;
-  }
-</style>
-</head>
-<body>
-
-<!-- NAV -->
-<nav>
-  <div class="nav-logo">DK.</div>
-  <ul class="nav-links">
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-
-  <div class="hero-inner">
-    <div class="hero-tag">Available for opportunities</div>
-    <h1 class="hero-name">
-      Kancharla<br><span>Dinesh</span>
-    </h1>
-    <p class="hero-title">
-      <b>Data Engineer</b> · ETL · Cloud · Big Data
-    </p>
-    <p class="hero-objective">
-      Motivated CS graduate passionate about transforming raw data into meaningful insights through robust engineering — specializing in data pipelines, ETL tools, and Azure cloud technologies.
-    </p>
-    <div class="hero-links">
-      <a href="mailto:dineshkancharla27@gmail.com" class="btn btn-primary">📧 Get in Touch</a>
-      <a href="https://www.linkedin.com/in/dinesh-kancharla-928934319" target="_blank" class="btn btn-ghost">LinkedIn →</a>
-      <a href="https://github.com/dinesh179750/HCL_HACKTAHON-TEAM-RUNTIME_REBELS" target="_blank" class="btn btn-ghost">GitHub →</a>
-    </div>
-    <div class="location-pill">Guntur, Andhra Pradesh, India</div>
-  </div>
-
-  <div class="hero-meta">
-    <div class="meta-item">
-      <div class="meta-value">83.6%</div>
-      <div class="meta-label">B.E. Score</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-value">2</div>
-      <div class="meta-label">Data Projects</div>
-    </div>
-    <div class="meta-item">
-      <div class="meta-value">5+</div>
-      <div class="meta-label">Tech Stacks</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="reveal">
-    <p class="section-label">Expertise</p>
-    <h2 class="section-title">Technical Skills</h2>
-  </div>
-  <div class="skills-grid">
-    <div class="skill-card reveal">
-      <div class="skill-icon">🐍</div>
-      <div class="skill-cat">Languages</div>
-      <div class="skill-name">Programming</div>
-      <div class="skill-tags">
-        <span class="tag">Python</span>
-        <span class="tag">SQL</span>
-        <span class="tag">NumPy</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">PySpark</span>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">⚙️</div>
-      <div class="skill-cat">ETL & Integration</div>
-      <div class="skill-name">Data Pipelines</div>
-      <div class="skill-tags">
-        <span class="tag">Informatica PowerCenter</span>
-        <span class="tag">Azure Data Factory</span>
-        <span class="tag">ADF</span>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">☁️</div>
-      <div class="skill-cat">Cloud & Big Data</div>
-      <div class="skill-name">Azure Ecosystem</div>
-      <div class="skill-tags">
-        <span class="tag">Microsoft Azure</span>
-        <span class="tag">Azure Databricks</span>
-        <span class="tag">Apache Spark</span>
-        <span class="tag">Medallion Architecture</span>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">🗄️</div>
-      <div class="skill-cat">Databases</div>
-      <div class="skill-name">Querying & Storage</div>
-      <div class="skill-tags">
-        <span class="tag">MySQL</span>
-        <span class="tag">SQL Server</span>
-        <span class="tag">Data Staging</span>
-        <span class="tag">Data Warehousing</span>
-      </div>
-    </div>
-    <div class="skill-card reveal">
-      <div class="skill-icon">🤝</div>
-      <div class="skill-cat">Professional</div>
-      <div class="skill-name">Soft Skills</div>
-      <div class="skill-tags">
-        <span class="tag">Analytical Thinking</span>
-        <span class="tag">Team Collaboration</span>
-        <span class="tag">Communication</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="reveal">
-    <p class="section-label">Work</p>
-    <h2 class="section-title">Featured Projects</h2>
-  </div>
-  <div class="projects-grid">
-
-    <div class="project-card reveal">
-      <div class="project-num">01 / PROJECT</div>
-      <h3 class="project-name">Telecom Sales Analysis</h3>
-      <div class="project-tools">Informatica PowerCenter · SQL · Data Warehouse</div>
-      <ul class="project-points">
-        <li>Designed and developed an end-to-end ETL pipeline using Informatica PowerCenter to extract, transform, and load telecom sales data from multiple heterogeneous sources.</li>
-        <li>Implemented SQL-based data staging strategies to clean and normalize raw datasets before loading into the target data warehouse.</li>
-        <li>Performed data quality checks and transformation logic to ensure accurate reporting for telecom sales metrics.</li>
-      </ul>
-    </div>
-
-    <div class="project-card reveal">
-      <div class="project-num">02 / PROJECT</div>
-      <h3 class="project-name">Uber Data Analysis Pipeline</h3>
-      <div class="project-tools">Azure Data Factory · Azure Databricks · PySpark</div>
-      <ul class="project-points">
-        <li>Built a multi-layered data pipeline using Azure Data Factory to ingest raw Uber trip data and transform it into a Silver layer with cleansed, structured records.</li>
-        <li>Leveraged Azure Databricks with PySpark to process and aggregate Silver layer data into a curated Gold layer for analytics and reporting.</li>
-        <li>Implemented Medallion Architecture (Bronze → Silver → Gold) to ensure data reliability, traceability, and scalability.</li>
-      </ul>
-      <div class="arch-badge">⬡ Medallion Architecture</div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="reveal">
-    <p class="section-label">Experience</p>
-    <h2 class="section-title">Internship</h2>
-  </div>
-  <div class="exp-card reveal">
-    <h3 class="exp-role">Data Analytics Intern</h3>
-    <div class="exp-company">Prodigy Infotech</div>
-    <ul class="exp-points">
-      <li>Utilized Python libraries — NumPy and Pandas — to perform data wrangling, cleaning, and statistical analysis on multiple real-world datasets.</li>
-      <li>Built interactive dashboards to visualize key business KPIs across various projects, enabling data-driven decision-making.</li>
-      <li>Gained hands-on experience in the complete data analysis lifecycle from data ingestion to insight delivery.</li>
-    </ul>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- EDUCATION -->
-<section id="education">
-  <div class="reveal">
-    <p class="section-label">Academic Background</p>
-    <h2 class="section-title">Education</h2>
-  </div>
-  <div class="edu-list">
-    <div class="edu-item reveal">
-      <div>
-        <div class="edu-year">2026</div>
-      </div>
-      <div>
-        <div class="edu-degree">B.E. Computer Science & Engineering</div>
-        <div class="edu-school">Saveetha University</div>
-      </div>
-      <div class="edu-score">83.6%</div>
-    </div>
-    <div class="edu-item reveal">
-      <div>
-        <div class="edu-year">2022</div>
-      </div>
-      <div>
-        <div class="edu-degree">Intermediate — MPC</div>
-        <div class="edu-school">Narayana Junior College</div>
-      </div>
-      <div class="edu-score">87.9%</div>
-    </div>
-    <div class="edu-item reveal">
-      <div>
-        <div class="edu-year">2020</div>
-      </div>
-      <div>
-        <div class="edu-degree">SSC (10th Grade)</div>
-        <div class="edu-school">Narayana Techno School</div>
-      </div>
-      <div class="edu-score">99.6%</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CERTIFICATIONS & ACHIEVEMENTS -->
-<section id="cert-achieve">
-  <div class="reveal">
-    <p class="section-label">Recognition</p>
-    <h2 class="section-title">Certifications & Achievements</h2>
-  </div>
-
-  <div class="cert-card reveal" style="margin-bottom: 2rem;">
-    <div class="cert-icon">🏅</div>
-    <div>
-      <div class="cert-name">MySQL Certificate</div>
-      <div class="cert-issuer">Oracle</div>
-      <div class="cert-desc">Certified in SQL querying, database design, and data management.</div>
-    </div>
-  </div>
-
-  <div class="achieve-grid">
-    <div class="achieve-card reveal">
-      <div class="achieve-emoji">🏆</div>
-      <div class="achieve-title">HCL Hackathon — Informatica</div>
-      <div class="achieve-desc">Represented Team Runtime Rebels and collaborated on building scalable data pipeline solutions under competitive conditions using Informatica tools.</div>
-    </div>
-    <div class="achieve-card reveal">
-      <div class="achieve-emoji">🧩</div>
-      <div class="achieve-title">Problem-Solver Under Pressure</div>
-      <div class="achieve-desc">Demonstrated strong problem-solving skills in a team environment, leveraging Informatica to tackle real-world data engineering challenges at speed.</div>
-    </div>
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- CONTACT -->
-<div id="contact">
-  <div class="contact-inner">
-    <div>
-      <p class="section-label">Say Hello</p>
-      <h2 class="contact-heading">Let's build<br><span>something great.</span></h2>
-    </div>
-    <div class="contact-links">
-      <a href="mailto:dineshkancharla27@gmail.com" class="btn btn-primary">📧 dineshkancharla27@gmail.com</a>
-      <a href="tel:9491984039" class="btn btn-ghost">📞 9491984039</a>
-      <a href="https://www.linkedin.com/in/dinesh-kancharla-928934319" target="_blank" class="btn btn-ghost">LinkedIn</a>
-      <a href="https://github.com/dinesh179750/HCL_HACKTAHON-TEAM-RUNTIME_REBELS" target="_blank" class="btn btn-ghost">GitHub</a>
-    </div>
-  </div>
-</div>
-
-<footer>
-  <p>© 2026 Kancharla Dinesh · Built with passion for data engineering</p>
-</footer>
-
-<script>
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, i) => {
-      if (entry.isIntersecting) {
-        setTimeout(() => entry.target.classList.add('visible'), i * 80);
-      }
-    });
-  }, { threshold: 0.1 });
-
-  reveals.forEach(el => observer.observe(el));
-
-  // Stagger sibling cards
-  document.querySelectorAll('.skills-grid, .projects-grid, .achieve-grid').forEach(grid => {
-    const cards = grid.querySelectorAll('.reveal');
-    cards.forEach((card, i) => {
-      card.style.transitionDelay = `${i * 0.08}s`;
-    });
-  });
-</script>
-</body>
-</html>
+    to   { opacity: 1; transform: translat
